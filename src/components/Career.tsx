@@ -15,43 +15,37 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>SQL Developer Intern</h4>
+                <h5>Gray Corporates Pvt. Ltd.</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2025</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Designed SQL queries using joins, subqueries, and window functions to clean, transform, analyze, and prepare structured datasets for analytics workflows.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Python / Data Science Intern</h4>
+                <h5>S2P Edutech Pvt. Ltd.</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2024</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Worked on Python-based data preprocessing, analysis, visualization, and basic ML model development using Pandas, NumPy, Matplotlib, and Scikit-learn.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>B.Tech in AI & Data Science</h4>
+                <h5>S.B Jain Institute of Technology Management & Research</h5>
               </div>
-              <h3>NOW</h3>
+              <h3>2022-26</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Gained comprehensive academic foundation in Artificial Intelligence, Machine Learning, Database Management Systems, Data Structures, and Analytics. CGPA: 6.5.
             </p>
           </div>
         </div>

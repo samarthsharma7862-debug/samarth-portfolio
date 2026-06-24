@@ -11,18 +11,65 @@ import {
   RapierRigidBody,
 } from "@react-three/rapier";
 
-const textureLoader = new THREE.TextureLoader();
-const imageUrls = [
-  "/images/react2.webp",
-  "/images/next2.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
+const technologies = [
+  { name: "Python", bg: "#1e3d59", text: "#ffc13b" },
+  { name: "SQL", bg: "#17b978", text: "#ffffff" },
+  { name: "Pandas", bg: "#130f40", text: "#f9ca24" },
+  { name: "NumPy", bg: "#013A63", text: "#90E0EF" },
+  { name: "Scikit-Learn", bg: "#f18c16", text: "#ffffff" },
+  { name: "XGBoost", bg: "#d9383a", text: "#ffffff" },
+  { name: "FastAPI", bg: "#059669", text: "#ffffff" },
+  { name: "Streamlit", bg: "#ff4b4b", text: "#ffffff" },
+  { name: "MLflow", bg: "#013766", text: "#ffffff" },
+  { name: "Docker", bg: "#0db7ed", text: "#ffffff" },
+  { name: "Power BI", bg: "#f2c811", text: "#111111" },
+  { name: "Tableau", bg: "#e9573f", text: "#ffffff" },
+  { name: "LangGraph", bg: "#4b2cad", text: "#ffffff" },
+  { name: "LangChain", bg: "#000000", text: "#39ff14" },
+  { name: "Git", bg: "#f05032", text: "#ffffff" },
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
+
+const createTechTexture = (name: string, bgColor: string, textColor: string) => {
+  const canvas = document.createElement("canvas");
+  canvas.width = 256;
+  canvas.height = 256;
+  const ctx = canvas.getContext("2d");
+  if (ctx) {
+    ctx.fillStyle = bgColor;
+    ctx.beginPath();
+    ctx.arc(128, 128, 120, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.4)";
+    ctx.lineWidth = 6;
+    ctx.stroke();
+
+    ctx.fillStyle = textColor;
+    ctx.font = "bold 24px 'Geist', sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    if (name.includes(" ") || name.includes("-")) {
+      const words = name.split(/[ -]/);
+      if (words.length === 2) {
+        ctx.fillText(words[0], 128, 110);
+        ctx.fillText(words[1], 128, 146);
+      } else {
+        ctx.font = "bold 20px 'Geist', sans-serif";
+        ctx.fillText(name, 128, 128);
+      }
+    } else {
+      if (name.length > 8) {
+        ctx.font = "bold 20px 'Geist', sans-serif";
+      }
+      ctx.fillText(name, 128, 128);
+    }
+  }
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.needsUpdate = true;
+  return texture;
+};
+
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
@@ -152,7 +199,10 @@ const TechStack = () => {
     };
   }, []);
   const materials = useMemo(() => {
-    return textures.map(
+    const techTextures = technologies.map((tech) =>
+      createTechTexture(tech.name, tech.bg, tech.text)
+    );
+    return techTextures.map(
       (texture) =>
         new THREE.MeshPhysicalMaterial({
           map: texture,
